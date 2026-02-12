@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:qent/core/constants/app_routes.dart';
+import 'package:qent/routes/app_routes.dart';
 
 class SplashController extends GetxController {
   void goToNextSplash() {

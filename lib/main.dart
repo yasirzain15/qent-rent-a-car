@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:qent/bindings/app_bindings.dart';
+
+import 'bindings/app_bindings.dart';
 import 'core/constants/app_colors.dart';
 import 'routes/app_pages.dart';
+import 'routes/app_routes.dart';
 
 void main() {
   runApp(const QentApp());
@@ -17,23 +19,44 @@ class QentApp extends StatelessWidget {
       title: 'Qent - Rent a Car',
       debugShowCheckedModeBanner: false,
 
-      // Theme using your colors
+      // Global Theme
       theme: ThemeData(
+        useMaterial3: true,
         scaffoldBackgroundColor: AppColors.background,
+
         primaryColor: AppColors.primary,
-        colorScheme: ColorScheme.fromSeed(seedColor: AppColors.tertiary),
-        textTheme: const TextTheme(
-          bodyMedium: TextStyle(color: AppColors.textPrimary),
+
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: AppColors.tertiary,
+          primary: AppColors.primary,
+          secondary: AppColors.secondary,
+        ),
+
+        inputDecorationTheme: InputDecorationTheme(
+          filled: true,
+          fillColor: AppColors.secondary,
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(14),
+            borderSide: BorderSide(color: AppColors.stroke),
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(14),
+            borderSide: BorderSide(color: AppColors.stroke),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(14),
+            borderSide: BorderSide(color: AppColors.tertiary),
+          ),
         ),
       ),
 
-      // Initial route
-      initialRoute: AppPages.initial,
+      // Initial Route
+      initialRoute: AppRoutes.splash1,
 
-      // GetX routes
+      // GetX Pages
       getPages: AppPages.routes,
 
-      // **Attach all bindings globally**
+      // Global Bindings
       initialBinding: AppBinding(),
     );
   }

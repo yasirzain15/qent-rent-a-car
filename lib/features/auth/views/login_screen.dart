@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:qent/core/constants/app_text_styles.dart';
+import 'package:qent/routes/app_routes.dart';
 
 import '../../../core/constants/app_colors.dart';
 import '../../../core/constants/app_assets.dart';
@@ -83,7 +84,9 @@ class LoginScreen extends StatelessWidget {
                     const Spacer(),
 
                     TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Get.toNamed(AppRoutes.resetPassword);
+                      },
                       child: Text(
                         "Forgot Password",
                         style: TextStyle(color: AppColors.tertiary),
@@ -126,7 +129,9 @@ class LoginScreen extends StatelessWidget {
                         borderRadius: BorderRadius.circular(18),
                       ),
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      Get.toNamed(AppRoutes.signup);
+                    },
                     child: const Text(
                       "Sign up",
                       style: AppTextStyles.robotoBody,
